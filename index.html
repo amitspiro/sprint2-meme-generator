@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/index.css" />
+  </head>
+  <body>
+    <!-- <header>
+        <div class="logo">logo</div>
+        <nav>
+            <ul>
+                <li>gallery</li>
+                <li>saved</li>
+                <li>random meme</li>
+            </ul>
+        </nav>
+    </header> -->
+    <div class="canvas-container">
+      <canvas id="my-canvas" width="500" height="500"></canvas>
+    </div>
+
+    <div class="inputs">
+      <input placeholder="Meme Text " type="text" name="text-input" />
+      <label>text fill color: <input type="color" name="fill-color" /></label>
+      <label> border color: <input type="color" name="border-color" /></label>
+
+      <div class="buttons">
+        <button class="add=text=btn btn" onclick="addTextBox()">A+</button>
+        <a
+          class="btn"
+          href="#"
+          onclick="downloadImg(this)"
+          download="my-img.jpg"
+        >
+          download</a
+        >
+      </div>
+    </div>
+
+    <script src="js/controllers/controller.js"></script>
+  </body>
+</html>
