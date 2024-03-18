@@ -4,41 +4,91 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <div class="cool-hover"></div>
+    <link rel="stylesheet" href="css/all.css" />
+    <link rel="stylesheet" href="css/gallery.css" />
     <link rel="stylesheet" href="css/index.css" />
   </head>
-  <body>
-    <!-- <header>
-        <div class="logo">logo</div>
-        <nav>
-            <ul>
-                <li>gallery</li>
-                <li>saved</li>
-                <li>random meme</li>
-            </ul>
-        </nav>
-    </header> -->
-    <div class="canvas-container">
-      <canvas id="my-canvas" width="500" height="500"></canvas>
-    </div>
 
-    <div class="inputs">
-      <input placeholder="Meme Text " type="text" name="text-input" />
-      <label>text fill color: <input type="color" name="fill-color" /></label>
-      <label> border color: <input type="color" name="border-color" /></label>
+  <body onload="onInit()">
+    <header>
+      <div class="logo">logo</div>
+      <nav>
+        <ul class="clean-list">
+          <div class="cool-hover">
+            <li onclick="openGallery()">Meme-Templates</li>
+          </div>
+          <div class="cool-hover">
+            <li>saved</li>
+          </div>
 
-      <div class="buttons">
-        <button class="add=text=btn btn" onclick="addTextBox()">A+</button>
-        <a
-          class="btn"
-          href="#"
-          onclick="downloadImg(this)"
-          download="my-img.jpg"
-        >
-          download</a
-        >
+          <div class="cool-hover">
+            <li>randomize meme</li>
+          </div>
+
+        </ul>
+      </nav>
+    </header>
+
+    <section class="main-gallery-container">
+      <h1>Lets choose our meme template <span class="smile">🤩</span></h1>
+      <section class="gallery-container"></section>
+    </section>
+
+    <section class="meme-editor">
+      <div class="canvas-container">
+        <canvas id="my-canvas" width="500" height="500"></canvas>
       </div>
-    </div>
 
-    <script src="js/controllers/controller.js"></script>
+      <div class="editor">
+        <div class="inputs">
+          <input
+            placeholder="Meme Text "
+            type="text"
+            id="txt"
+            oninput="onTextInput(this.value)"
+          />
+          <button>
+            <label
+              >text fill color:
+              <input
+                type="color"
+                name="fill-color"
+                oninput="changeFillColor(this.value)"
+            /></label>
+          </button>
+
+          <button>
+            <label>
+              border color:
+              <input
+                type="color"
+                name="border-color"
+                oninput="changeBorderColor(this.value)"
+            /></label>
+          </button>
+        </div>
+
+        <div class="buttons">
+          <button onclick="onSwitchLine()">switch</button>
+          <button class="add-text-btn btn" onclick="onAddLine()">line+</button>
+          <button onclick="fontUp()" class="btn">A+</button>
+          <button onclick="fontDown()" class="btn">A-</button>
+
+          <a
+            class="btn"
+            href="#"
+            onclick="downloadImg(this)"
+            download="my-img.jpg"
+          >
+            download</a
+          >
+        </div>
+      </div>
+    </section>
+    <!-- <script src="js/services/gallery.service.js"></script> -->
+    <script src="js/services/meme.page.service.js"></script>
+    <script src="js/controllers/gallery.controller.js"></script>
+    <script src="js/controllers/meme.page.controller.js"></script>
   </body>
 </html>

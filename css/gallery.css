@@ -1,0 +1,30 @@
+.gallery-container {
+    padding-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid grey;
+    background-color: rgb(107, 162, 191);
+    justify-content: center;
+    gap: 15px;
+    /* padding: 15px; */
+    border-radius: 15px;
+    margin: auto;
+    margin-top: 25px;
+
+
+    width:80% ;
+}
+
+.gallery-img {
+    width: 100px;
+    cursor: pointer;
+    transition: 0.36s;
+    border-radius: 15px;
+    opacity: 0.6;
+    /* overflow:visible; */
+}
+
+.gallery-img:hover {
+    scale: 1.2;
+    opacity: 1;
+}
