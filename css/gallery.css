@@ -1,3 +1,4 @@
+
 .gallery-container {
     padding-top: 20px;
     display: flex;
@@ -10,9 +11,13 @@
     border-radius: 15px;
     margin: auto;
     margin-top: 25px;
-
-
+    
     width:80% ;
+}
+.main-gallery-container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .gallery-img {
@@ -21,10 +26,25 @@
     transition: 0.36s;
     border-radius: 15px;
     opacity: 0.6;
-    /* overflow:visible; */
 }
 
 .gallery-img:hover {
     scale: 1.2;
     opacity: 1;
+}
+.meme-search{
+    text-align: center;
+    width: 20em;
+    margin: auto;
+}
+
+/* .gallery-img:hover span.smile{
+    background-color: #9c1a1a;
+    display: none;
+    
+} */
+
+span.smile:hover{
+    transform: rotate(360deg);
+
 }

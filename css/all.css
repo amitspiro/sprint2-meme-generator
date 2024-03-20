@@ -14,6 +14,7 @@ body{
 
 h1{
     margin: auto;
+    text-align: center;
 }
 
 .meme-editor{
@@ -22,11 +23,11 @@ h1{
 
 li:hover{
     cursor: pointer;
-    /* background-color: slategrey; */
     box-shadow: inset;
-    transition: 0.5s;
+    transition: 1s;
     box-shadow: inset -1px 1px 9px 11px #3d454c;
     border-radius: 7px;
+    text-decoration: underline;
     
 }
 .cool-hover:hover{
@@ -48,7 +49,9 @@ nav{
     display: flex;
     flex-direction: row;
     text-transform: uppercase;
-    padding-inline-end: 40px;
+    /* padding-inline-end: 40px; */
+    box-shadow: -1px 1px 9px 11px rgb(19, 20, 22);
+border-radius: 7px;
 }
 
 ul{
@@ -69,3 +72,7 @@ li{
     padding: 0;
     list-style-type: none;
 }
+
+
+
+/* 768 phone */

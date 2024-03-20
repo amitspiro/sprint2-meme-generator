@@ -16,6 +16,9 @@ canvas {
     border-radius: 20px;
     background-color: #4da7ca;
   }
+  canvas:hover{
+    cursor: grab;
+  }
 
   .btn:hover{
     cursor: pointer;
@@ -23,3 +26,4 @@ canvas {
     background-color: #da7272;
 
   }
+

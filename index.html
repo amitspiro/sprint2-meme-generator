@@ -12,14 +12,17 @@
 
   <body onload="onInit()">
     <header>
-      <div class="logo">logo</div>
+      <div class="logo">A-meme-t generator</div>
       <nav>
         <ul class="clean-list">
           <div class="cool-hover">
-            <li onclick="openGallery()">Meme-Templates</li>
+            <li onclick="openGallery()">switch-Template</li>
           </div>
           <div class="cool-hover">
-            <li>saved</li>
+            <li>memes</li>
+          </div>
+          <div class="cool-hover">
+            <li>about</li>
           </div>
 
           <div class="cool-hover">
@@ -32,6 +35,7 @@
 
     <section class="main-gallery-container">
       <h1>Lets choose our meme template <span class="smile">🤩</span></h1>
+      <input type="text" class="meme-search" oninput="onMemeFilter()" placeholder="search...🔍">
       <section class="gallery-container"></section>
     </section>
 
@@ -39,9 +43,10 @@
       <div class="canvas-container">
         <canvas id="my-canvas" width="500" height="500"></canvas>
       </div>
-
-      <div class="editor">
-        <div class="inputs">
+      
+      <!-- <div class="editor"> -->
+        <div class="controllers">
+        <!-- <div class="inputs"> -->
           <input
             placeholder="Meme Text "
             type="text"
@@ -57,8 +62,9 @@
                 oninput="changeFillColor(this.value)"
             /></label>
           </button>
+    
 
-          <button>
+          <!-- <button>
             <label>
               border color:
               <input
@@ -66,27 +72,47 @@
                 name="border-color"
                 oninput="changeBorderColor(this.value)"
             /></label>
-          </button>
-        </div>
+          </button> -->
+        <!-- </div> -->
 
-        <div class="buttons">
-          <button onclick="onSwitchLine()">switch</button>
-          <button class="add-text-btn btn" onclick="onAddLine()">line+</button>
-          <button onclick="fontUp()" class="btn">A+</button>
-          <button onclick="fontDown()" class="btn">A-</button>
+          <button class="btn" onclick="onRemoveLastLine()" title="delete last line">delete last</button>
+          <button class="btn" onclick="removeCurrentLine()" title="delete current line">delete line</button>
+          <button onclick="onSwitchLine()" title="switch line">switch</button>
+          <button class="btn" onclick="onEmojiClick(this.innerText)">😍</button>
+          <button class="add-text-btn btn" onclick="onAddLine()" title="create new line">line+</button>
+          <button onclick="fontUp()" class="btn" title="bigger font">A+</button>
+          <button onclick="fontDown()" class="btn" title="smaller font">A-</button>
+          <select onchange="changeFontFamily(this.value)">
+            <option value="">Select font</option>
+            <option value="ariel">ariel</option>
+            <option value="impact">impact</option>
+            <option value="Tahoma">Tahoma</option>
+            <option value="Helvetica ">Helvetica </option>
+            <option value="Arial Black ">Arial Black </option>
+
+            <option value="Rubik_Wet_Paint">Rubik_Wet_Paint</option>
+        </select>
+          <button class="btn" title="align right" onclick="alignRight()">rightt</button>
+          <button class="btn" title="align center" onclick="alignCenter()">centerrrr</button>
+          <button class="btn" title="align left" onclick="alignLeft()">lefttt</button>
+          <button class="btn" title="move left" onclick="moveLeft()"> more lefttt</button>
+          <button class="btn" title="move right" onclick="moveRight()"> more rightt</button>
+          <button class="btn" title="move up" onclick="moveUp()"> more up</button>
+          <button class="btn" title="move down" onclick="moveDown()"> more down</button>
 
           <a
             class="btn"
             href="#"
             onclick="downloadImg(this)"
             download="my-img.jpg"
+            title="download meme"
           >
             download</a
           >
         </div>
-      </div>
+      <!-- </div> -->
     </section>
-    <!-- <script src="js/services/gallery.service.js"></script> -->
+    <script src="js/services/gallery.service.js"></script>
     <script src="js/services/meme.page.service.js"></script>
     <script src="js/controllers/gallery.controller.js"></script>
     <script src="js/controllers/meme.page.controller.js"></script>
