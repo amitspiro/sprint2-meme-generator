@@ -4,7 +4,8 @@
     display: flex;
     flex-wrap: wrap;
     border: 1px solid grey;
-    background-color: rgb(107, 162, 191);
+    /* background-color: rgb(107, 162, 191); */
+    background: linear-gradient(to bottom right, #e0e0e0, #d2b48c, #808080, #d2b48c);
     justify-content: center;
     gap: 15px;
     /* padding: 15px; */
@@ -47,4 +48,13 @@
 span.smile:hover{
     transform: rotate(360deg);
 
+}
+
+h1{
+    background: linear-gradient(to bottom right, #e0e0e0, #d2b48c, #808080, #d2b48c);
+    box-shadow: -1px 1px 9px 11px rgb(19, 20, 22);
+border-radius: 10px;
+padding: 12px;
+margin-top: 15px;
+margin-bottom: 20px;
 }

@@ -4,6 +4,7 @@
 let gElEditor = document.querySelector(".meme-editor");
 let gCtx;
 let gElCanvas = document.getElementById("my-canvas");
+let gElAbout = document.querySelector('.about')
 
 let gMeme = {
   selectedImgId: 5,
@@ -119,7 +120,7 @@ function removeCurrentLine(){
   let curr= gMeme.selectedLineIdx
   console.log(gMeme.lines);
   gMeme.lines.splice(curr,1)
-  console.log(gMeme.liness);
+  console.log(gMeme.lines);
 
 }
 

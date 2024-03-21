@@ -14,7 +14,11 @@ canvas {
     max-width: 100%;
     padding: 10px;
     border-radius: 20px;
-    background-color: #4da7ca;
+    background-color: #20222F;
+    box-shadow: -1px 1px 9px 11px rgb(19, 20, 22);
+
+    /* background-color: #4da7ca; */
+    margin-top: 1em;
   }
   canvas:hover{
     cursor: grab;
@@ -26,4 +30,28 @@ canvas {
     background-color: #da7272;
 
   }
+.btn{
+  padding: 5px;
+  /* padding-right: 4px; */
+  margin: 2px;
+  background-color:#f4be7c;
+  background: linear-gradient(to bottom right,#f4be7c, #e0a961, #c47836, #d2b48c);
 
+}
+.download{
+border-style: solid;
+border-color: #20222F;
+border-width: 2px;
+}
+.u-btn{
+border: 1px;
+/* padding; */
+/* margin: 0; */
+}
+
+.random-container{
+  width: 600px;
+  height: 600px;
+  margin: auto;
+  background-color: #000000;
+}

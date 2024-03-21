@@ -22,7 +22,7 @@ function openGallery() {
 function onImgSelect(imgId) {
   setImg(imgId);
   gElGallery.style.display = "none";
-  gElEditor.style.display = "block";
+  gElEditor.style.display = "grid";
   renderMeme();
 }
 

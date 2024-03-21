@@ -1,0 +1,120 @@
+@media (max-width:770px) {
+    .toggle-menu-btn {
+        display: block;
+    }
+
+    nav,
+    nav>ul {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        z-index: 10;
+        background: linear-gradient(to bottom right, #e0e0e0, #d2b48c, #808080, #d2b48c);
+        margin-top: 3em;
+        border-top-style: none;
+    }
+
+    ul {
+        border-top-style: none;
+
+    }
+
+    nav {
+        display: none;
+        /* opacity: 0.6; */
+
+    }
+    /* .cool-hover:hover{ */
+        /* opacity: 1; */
+    /* } */
+
+    .menu-open {
+        box-shadow: -6px 0px 20px rgb(0 0 0 / 25%);
+        transform: translateX(0);
+        /* opacity: 1; */
+        pointer-events: auto;
+        background-color: #a54747;
+        display: block;
+        /* transition: 2s; */
+
+    }
+
+    .toggle-menu-btn {
+        z-index: 99;
+    }
+
+    .meme-editor {
+        display: none;
+        /* display: grid; */
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+        background-image: url('/background/1.jpg');
+        /* background-color: #df229d; */
+    }
+
+    .canvas-container {
+        grid-row: 1;
+        background-color: transparent;
+    }
+
+    .controllers {
+        grid-row: 2;
+        margin-top: 2em;
+        padding: 1em;
+        background: linear-gradient(to bottom right, #e0e0e0, #d2b48c, #808080, #d2b48c);
+        margin-right: 20px;
+        margin-left: 20px;
+        border-style: groove;
+        border-width: 2px;
+        border-radius: 7px;
+        border-color: #d2b48c;
+        box-shadow: -1px 1px 9px 11px rgb(19, 20, 22);
+    }
+}
+
+@media(min-width:771px) {
+    ul {
+        justify-content: space-between;
+        gap: 40px;
+    }
+
+    .meme-editor {
+        display: none;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr;
+        background-color: #46b86c;
+        background-image: url('/background/1.jpg');
+    }
+
+    .canvas-container {
+        grid-column: 1;
+        grid-row: 1;
+        background-color: transparent;
+        margin-left: 15px;
+    }
+
+    .controllers {
+        grid-column: 2;
+        margin-top: 1em;
+        margin: auto;
+        padding: 1em;
+        grid-row: 1;
+        /* display: flex; */
+        /* flex-wrap: wrap; */
+        /* align-items: center; */
+        margin-top: 50%;
+        transform: translateY(-50%);
+        background: linear-gradient(to bottom right, #e0e0e0, #d2b48c, #808080, #d2b48c);
+        margin-right: 20px;
+        margin-left: 20px;
+        border-style: groove;
+        border-width: 2px;
+        border-radius: 7px;
+        border-color: #d2b48c;
+        box-shadow: -1px 1px 9px 11px rgb(19, 20, 22);
+
+    }
+}

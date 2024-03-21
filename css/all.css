@@ -1,78 +1,92 @@
-*{
+* {
     box-sizing: border-box;
     transition: 1.5s;
 }
 
-body{
+body {
     padding: 0px;
-   background-color: #f1eacbe8;
-   margin: 0;
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
+    background-image: url('/background/1.jpg');
+    /* background-color: #f1eacbe8; */
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-h1{
+h1 {
     margin: auto;
     text-align: center;
 }
 
-.meme-editor{
+.meme-editor {
     display: none;
 }
 
-li:hover{
+li:hover {
     cursor: pointer;
     box-shadow: inset;
     transition: 1s;
     box-shadow: inset -1px 1px 9px 11px #3d454c;
     border-radius: 7px;
     text-decoration: underline;
-    
+
 }
-.cool-hover:hover{
+
+.cool-hover:hover {
     transition: 0.5s;
     box-shadow: -1px 1px 9px 11px rgb(19, 20, 22);
     border-radius: 7px;
 
 }
 
-header{
-    background-color: rgba(128, 128, 128, 0.682);
-width: 100%;
-margin: 0;
-padding: 15px;
-display: flex;
-justify-content: space-between;
+header {
+    /* background-color: rgba(128, 128, 128, 0.682); */
+    width: 100%;
+    margin: 0;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    background: linear-gradient(to bottom right, #e0e0e0, #d2b48c, #808080, #d2b48c);
+    /* background: linear-gradient(to bottom right,#f4be7c, #e0a961, #c47836, #d2b48c); */
+
 }
-nav{
+
+nav {
     display: flex;
     flex-direction: row;
     text-transform: uppercase;
     /* padding-inline-end: 40px; */
     box-shadow: -1px 1px 9px 11px rgb(19, 20, 22);
-border-radius: 7px;
+    border-radius: 7px;
+    /* background: linear-gradient(to bottom right, #e0e0e0, #d2b48c, #808080, #d2b48c); */
+    background: linear-gradient(to bottom right,#f4be7c, #e0a961, #a38b76, #d2b48c);
+
 }
 
-ul{
+ul {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    gap: 45px;
+    /* justify-content: space-between; */
+    /* gap: 45px; */
     box-shadow: inset -1px 1px 9px 11px #66635f;
     border-radius: 7px
 }
-li{
+
+li {
     padding: 20px;
     /* text-decoration:; */
 
 }
+
 .clean-list {
     margin: 0;
     padding: 0;
     list-style-type: none;
 }
 
+.toggle-menu-btn {
+    display: none;
+}
 
 
 /* 768 phone */
