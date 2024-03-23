@@ -1,5 +1,5 @@
 "use strict";
-let gFilterBy=''
+let gFilterBy = "";
 
 function renderGallery() {
   const imgs = getImgs(gFilterBy);
@@ -7,7 +7,7 @@ function renderGallery() {
     return `
       <article>
       <img onclick="onImgSelect(${img.id})" class="gallery-img"
-      src="imgs-square/${img.url}" />
+      src="imgs/imgs-square/${img.url}" />
       </article>`;
   });
 
@@ -17,10 +17,14 @@ function renderGallery() {
 function openGallery() {
   gElGallery.style.display = "block";
   gElEditor.style.display = "none";
+  gElRandomMeme.style.display = "none";
+  gElSaved.style.display='none'
+
 }
 
 function onImgSelect(imgId) {
   setImg(imgId);
+  gElSaved.style.display='none'
   gElGallery.style.display = "none";
   gElEditor.style.display = "grid";
   renderMeme();
@@ -34,7 +38,6 @@ function onMemeFilter() {
 
 function downloadImg(elLink) {
   renderMeme(true);
-  // console.log(elLink);
   const imgContent = gElCanvas.toDataURL("image/jpeg"); // image/jpeg the default format
   elLink.href = imgContent;
 }

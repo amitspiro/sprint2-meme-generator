@@ -3,47 +3,58 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>A-meme-t Generator</title>
     <div class="cool-hover"></div>
     <link rel="stylesheet" href="css/all.css" />
     <link rel="stylesheet" href="css/gallery.css" />
     <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/random.css" />
+    <link rel="stylesheet" href="css/saved.css" />
     <link rel="stylesheet" href="css/mq.css" />
   </head>
 
   <body onload="onInit()">
     <header>
-      <div class="logo">A-meme-t generator</div>
-      <!-- <div class="main-nav"> -->
+      <div class="logo"></div>
       <nav class="main-nav">
         <ul class="clean-list">
           <div class="cool-hover">
             <li onclick="openGallery()">switch-Template</li>
           </div>
           <div class="cool-hover">
-            <li>memes</li>
+            <li onclick="onOpenSaved()">memes</li>
           </div>
           <div class="cool-hover">
-            <li class="about">about</li>
-          </div>
-
-          <div class="cool-hover">
-            <li>randomize meme</li>
+            <li onclick="openRandom()" class="random">randomize meme</li>
           </div>
         </ul>
       </nav>
       <button class="toggle-menu-btn" type="button" onclick="toggleMenu()">
         ☰
       </button>
-      <!-- </div> -->
     </header>
 
-    <section class="main-gallery-container">
-      <!-- <div class="random-container"> -->
-        <!-- <img src="/random-meme/1.jpg" alt=""> -->
-        <!-- <div class="random-pic"></div> -->
-      <!-- </div> -->
+    <section class="main-saved-container">
+      <h2>Lets check our saved memes<span class="smile">🤩</span></h2>
+      <section class="saved-container"></section>
+    </section>
 
+    <section class="random-container">
+      <div class="main-random-container">
+        <div class="random-meme"></div>
+        <a
+          class="btn download random-download"
+          href="#"
+          onclick="downloadRandomImg(this)"
+          download="my-img.jpg"
+          title="download random meme"
+        >
+          download</a
+        >
+      </div>
+    </section>
+
+    <section class="main-gallery-container">
       <h1>Lets choose our meme template <span class="smile">🤩</span></h1>
       <input
         type="text"
@@ -59,9 +70,7 @@
         <canvas id="my-canvas" width="500" height="500"></canvas>
       </div>
 
-      <!-- <div class="editor"> -->
       <div class="controllers">
-        <!-- <div class="inputs"> -->
         <input
           placeholder="Meme Text "
           type="text"
@@ -70,26 +79,14 @@
         />
         <button>
           <label class="u-btn btn"
-
             >text fill color:
-            <input 
-            class="btn"
+            <input
+              class="btn"
               type="color"
               name="fill-color"
               oninput="changeFillColor(this.value)"
           /></label>
         </button>
-
-        <!-- <button>
-            <label>
-              border color:
-              <input
-                type="color"
-                name="border-color"
-                oninput="changeBorderColor(this.value)"
-            /></label>
-          </button> -->
-        <!-- </div> -->
 
         <button
           class="btn"
@@ -103,20 +100,36 @@
           onclick="removeCurrentLine()"
           title="delete current line"
         >
-          delete line
+          <img class="u-logo-btn" src="imgs/symbols/trash.png" alt="" />
         </button>
-        <button class="btn" onclick="onSwitchLine()" title="switch line">switch</button>
+        <button class="btn" onclick="onSwitchLine()" title="switch line">
+          <img
+            class="u-logo-btn"
+            src="imgs/symbols/up-and-down-opposite-double-arrows-side-by-side.png"
+            alt=""
+          />
+        </button>
         <button class="btn" onclick="onEmojiClick(this.innerText)">😍</button>
         <button
           class="add-text-btn btn"
           onclick="onAddLine()"
           title="create new line"
         >
-          line+
+          <img class="u-logo-btn" src="imgs/symbols/add.png" alt="" />
         </button>
-        <button onclick="fontUp()" class="btn" title="bigger font">A+</button>
+        <button onclick="fontUp()" class="btn" title="bigger font">
+          <img
+            class="u-logo-btn"
+            src="imgs/symbols/increase font - icon.png"
+            alt=""
+          />
+        </button>
         <button onclick="fontDown()" class="btn" title="smaller font">
-          A-
+          <img
+            class="u-logo-btn"
+            src="imgs/symbols/decrease font - icon.png"
+            alt=""
+          />
         </button>
 
         <select class="btn" onchange="changeFontFamily(this.value)">
@@ -129,24 +142,30 @@
           <!-- <option value="Rubik_Wet_Paint">Rubik_Wet_Paint</option> -->
         </select>
 
-        <button class="btn" title="align right" onclick="alignRight()">
-          rightt
+        <button class="btn" title="align left" onclick="alignLeft()">
+          <img class="u-logo-btn" src="imgs/symbols/align-to-left.png" alt="" />
         </button>
         <button class="btn" title="align center" onclick="alignCenter()">
-          centerrrr
+          <img class="u-logo-btn" src="imgs/symbols/align-center.png" alt="" />
         </button>
-        <button class="btn" title="align left" onclick="alignLeft()">
-          lefttt
+        <button class="btn" title="align right" onclick="alignRight()">
+          <img
+            class="u-logo-btn"
+            src="imgs/symbols/align-to-right.png"
+            alt=""
+          />
         </button>
         <button class="btn" title="move left" onclick="moveLeft()">
-         ⬅
+          <img class="u-logo-btn" src="imgs/symbols/left.jpg" alt="" />
+        </button>
+        <button class="btn" title="move up" onclick="moveUp()">
+          <img class="u-logo-btn" src="imgs/symbols/up.jpg" alt="" />
+        </button>
+        <button class="btn" title="move down" onclick="moveDown()">
+          <img class="u-logo-btn" src="imgs/symbols/down.jpg" alt="" />
         </button>
         <button class="btn" title="move right" onclick="moveRight()">
-          ➡
-        </button>
-        <button class="btn" title="move up" onclick="moveUp()">⬆</button>
-        <button class="btn" title="move down" onclick="moveDown()">
-          ⬇
+          <img class="u-logo-btn" src="imgs/symbols/right.png" alt="" />
         </button>
 
         <a
@@ -158,14 +177,22 @@
         >
           download</a
         >
+        <button class="btn" onclick="onSaveToSavedGallery()">save</button>
       </div>
-      <!-- </div> -->
     </section>
+
+    <footer>
+      <img class="footer-img" src="imgs/footer/footer.jpg" alt="" />
+    </footer>
+    <!-- <footer>©All rights reserved. coded by Amit spiro</footer> -->
+
     <script src="js/services/utils.js"></script>
     <script src="js/services/gallery.service.js"></script>
     <script src="js/services/meme.page.service.js"></script>
+    <script src="js/services/saved.service.js"></script>
     <script src="js/services/random.service.js"></script>
     <script src="js/controllers/random.controller.js"></script>
+    <script src="js/controllers/saved.controller.js"></script>
     <script src="js/controllers/gallery.controller.js"></script>
     <script src="js/controllers/meme.page.controller.js"></script>
   </body>

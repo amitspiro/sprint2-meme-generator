@@ -1,17 +1,20 @@
 "use strict";
-
-// const gElCanvas=document.getElementById('#my-canvas')
 const TOUCH_EVENTS = ["touchstart", "touchmove", "touchend"];
 let gOpenMenu = false;
 
 function onInit() {
   gElCanvas = document.getElementById("my-canvas");
-  // console.log(gElCanvas);
+  var elBody = document.querySelector("body");
+  var elLogo = document.querySelector(".logo");
+  elBody.style.backgroundImage = "url('imgs/background/1.jpg')";
+  elLogo.style.backgroundImage = "url('imgs/logo/4.png')";
+  gElEditor.style.backgroundImage = "url('imgs/background/1.jpg')";
+  gElSaved.style.display='none'
+
   gCtx = gElCanvas.getContext("2d");
   renderGallery();
   renderMeme();
   addListeners();
-  // checkKey()
 }
 function toggleMenu() {
   const nav = document.querySelector(".main-nav");
@@ -23,21 +26,13 @@ function toggleMenu() {
     gOpenMenu = false;
   }
 }
-// function checkKey(){
-//   console.log(gImgs);
-//   for (let i =0 ; i<=gImgs.length;i++){
-//     let lll=gImgs[i].keywords
-//    console.log(lll);
-//    if()
-//   }
-// }
 
 function renderMeme(isDownload = false) {
   const meme = getMeme();
   const memeLines = meme.lines;
   const memeImg = getImgById(meme.selectedImgId);
   let img = new Image();
-  img.src = `imgs-square/${memeImg}`;
+  img.src = `imgs/imgs-square/${memeImg}`;
 
   img.onload = () => {
     gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height);
@@ -114,9 +109,7 @@ function changeFontFamily(font) {
 
 function fontDown() {
   const selectedLine = getSelectedLine();
-  // console.log(selectedLine);
   selectedLine.size -= 5;
-  // console.log(selectedLine);
   renderMeme();
 }
 
@@ -208,32 +201,16 @@ function addTouchListeners() {
 function onDown(ev) {
   const pos = getEvPos(ev);
   const selectedLineIdx = getLineClickedIdx(pos);
-  // console.log('selectedLineIdx', selectedLineIdx)
-  // אם לא נתפס ליין
   if (selectedLineIdx === -1) {
-    // unSelectTxt()
     renderMeme();
     return;
   }
-  // תופס ליין
   getMeme().selectedLineIdx = selectedLineIdx;
-  // עורך ליין
   document.getElementById("txt").value = getMeme().lines[selectedLineIdx].txt;
   renderMeme();
   document.body.style.cursor = "grabbing";
   setLineDrag(selectedLineIdx, true);
 }
-
-// function isCircleClicked(clickedPos) {
-// 	const { pos } = gCircle
-
-// 	// Calc the distance between two dots
-// 	const distance =
-//         Math.sqrt((pos.x - clickedPos.x) ** 2 + (pos.y - clickedPos.y) ** 2)
-
-// 	//If its smaller then the radius of the circle we are inside
-// 	return distance <= gCircle.size
-// }
 
 function setLineDrag(selectedLineIdx, isDrag) {
   currentDragLineIdx = selectedLineIdx;
@@ -242,15 +219,8 @@ function setLineDrag(selectedLineIdx, isDrag) {
 
 function getEvPos(ev) {
   if (TOUCH_EVENTS.includes(ev.type)) {
-    ev.preventDefault(); // Prevent triggering the mouse events
-    ev = ev.changedTouches[0]; // Gets the first touch point
-
-    // Calculate the touch position inside the canvas
-
-    // ev.pageX = distance of touch position from the documents left edge
-    // target.offsetLeft = offset of the elemnt's left side from the it's parent
-    // target.clientLeft = width of the elemnt's left border
-
+    ev.preventDefault();
+    ev = ev.changedTouches[0];
     return {
       x: ev.pageX - ev.target.offsetLeft - ev.target.clientLeft,
       y: ev.pageY - ev.target.offsetTop - ev.target.clientTop,
@@ -264,7 +234,6 @@ function getEvPos(ev) {
 }
 
 function onMove(ev) {
-  // console.log(currentDragLineIdx);
   if (currentDragLineIdx === undefined) return;
   const selecetedLine = getMeme().lines[currentDragLineIdx];
   const pos = getEvPos(ev);
@@ -284,3 +253,4 @@ function onEmojiClick(emoji) {
   addNewLine(emoji);
   renderMeme();
 }
+

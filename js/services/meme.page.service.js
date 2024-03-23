@@ -1,10 +1,8 @@
 "use strict";
-// let gElCanvas = document.getElementById("my-canvas");
-
 let gElEditor = document.querySelector(".meme-editor");
 let gCtx;
 let gElCanvas = document.getElementById("my-canvas");
-let gElAbout = document.querySelector('.about')
+let gElAbout = document.querySelector(".about");
 
 let gMeme = {
   selectedImgId: 5,
@@ -20,14 +18,12 @@ let gMeme = {
       color: "white",
       x: gElCanvas.width / 2,
       y: 60,
-      isDrag:false,
-      font: 'impact'
-
+      isDrag: false,
+      font: "impact",
     },
-
   ],
 };
-let currentDragLineIdx
+let currentDragLineIdx;
 
 function addNewLine(txt = "Add Text") {
   let lastY;
@@ -42,8 +38,8 @@ function addNewLine(txt = "Add Text") {
     color: "white",
     x: gElCanvas.width / 2,
     y: getNextLineTxt(lastY),
-    isDrag:false,
-    font: 'impact'
+    isDrag: false,
+    font: "impact",
   });
 
   gMeme.selectedLineIdx = gMeme.lines.length - 1;
@@ -74,10 +70,8 @@ function getImgById(selectedImgId) {
 function setLineTxt(userTxt) {
   const selectedLine = getSelectedLine();
   selectedLine.txt = userTxt;
-  // renderMeme()???
 }
 function getSelectedLine() {
-  // console.log(gMeme.lines[gMeme.selectedLineIdx]);
   return gMeme.lines[gMeme.selectedLineIdx];
 }
 function setMemeFillColor(userColor) {
@@ -90,48 +84,25 @@ function setMemeBorderColor(userColor) {
   selecetedLine.strokeStyle = userColor;
   selecetedLine.lineWidth = 5;
 }
-// selecetedLine.color = userColor
-// gCtx.lineWidth = 4
-// gCtx.strokeText(text, x, y)
-
-// strokeRect ???
-// function drawText(text, x, y) {
-// 	gCtx.lineWidth = 2
-// 	gCtx.strokeStyle = 'orange'
-
-// 	gCtx.fillStyle = 'lightsteelblue'
-
-// 	gCtx.font = '45px Arial'
-// 	gCtx.textAlign = 'center'
-// 	gCtx.textBaseline = 'middle'
-
-// 	gCtx.fillText(text, x, y)
-// 	gCtx.strokeText(text, x, y)
-// }
 
 function RemoveLastLine() {
-  //* מוחק את השורה הקיימת
   gMeme.lines.pop();
-  //* מסמן את השורה החדשה
   gMeme.selectedLineIdx = gMeme.lines.length - 1;
 }
 
-function removeCurrentLine(){
-  let curr= gMeme.selectedLineIdx
+function removeCurrentLine() {
+  let curr = gMeme.selectedLineIdx;
   console.log(gMeme.lines);
-  gMeme.lines.splice(curr,1)
+  gMeme.lines.splice(curr, 1);
   console.log(gMeme.lines);
-
 }
 
 function isCircleClicked(clickedPos) {
-	const { pos } = gCircle
-	// Calc the distance between two dots
-	const distance = 
-        Math.sqrt((pos.x - clickedPos.x) ** 2 + (pos.y - clickedPos.y) ** 2)
-
-	//If its smaller then the radius of the circle we are inside
-	return distance <= gCircle.size
+  const { pos } = gCircle;
+  const distance = Math.sqrt(
+    (pos.x - clickedPos.x) ** 2 + (pos.y - clickedPos.y) ** 2
+  );
+  return distance <= gCircle.size;
 }
 
 function getLineClickedIdx(pos) {
@@ -141,102 +112,13 @@ function getLineClickedIdx(pos) {
     console.log(lineMetrics);
     const lineX = line.x;
     const lineY = line.y;
-    // console.log(lineX);
-    // console.log(lineY);
-    // console.log(pos);
 
     return (
-        pos.x >= lineX - lineMetrics.width &&
-        pos.x <= lineX + lineMetrics.width &&
-        pos.y >= lineY - lineMetrics.actualBoundingBoxDescent &&
-        pos.y <= lineY + lineMetrics.actualBoundingBoxAscent
-        );
-    });
-    // console.log(lineIdx);
-  return lineIdx
+      pos.x >= lineX - lineMetrics.width &&
+      pos.x <= lineX + lineMetrics.width &&
+      pos.y >= lineY - lineMetrics.actualBoundingBoxDescent &&
+      pos.y <= lineY + lineMetrics.actualBoundingBoxAscent
+    );
+  });
+  return lineIdx;
 }
-// function getLineClickedIdx(pos) {
-//   const lineIdx = gMeme.lines.findIndex((line) => {
-//     const lineMetrics = gCtx.measureText(line.txt);
-//     const lineX = line.x;
-//     const lineY = line.y;
-//     console.log(lineMetrics);
-//     console.log(lineX);
-//     console.log(lineY);
-//     console.log(pos);
-//     console.log(lineMetrics.width);
-
-//     return (
-//         pos.x >= lineX - lineMetrics.actualBoundingBoxLeft &&
-//         pos.x <= lineX + lineMetrics.actualBoundingBoxRight &&
-//         pos.y >= lineY - lineMetrics.actualBoundingBoxDescent &&
-//         pos.y <= lineY + lineMetrics.actualBoundingBoxAscent
-//         );
-//     });
-//     // console.log(lineIdx);
-//   return lineIdx
-// }
-// function getLineClickedIdx(pos) {
-//   const lineIdx = gMeme.lines.findIndex((line) => {
-//     const lineMetrics = gCtx.measureText(line.txt);
-//     const lineX = line.x;
-//     const lineY = line.y;
-//     console.log(lineMetrics);
-//     console.log(lineX);
-//     console.log(lineY);
-//     console.log(pos);
-//     console.log(lineMetrics.width);
-
-//     return (
-//         pos.x >= lineX - lineMetrics.actualBoundingBoxLeft &&
-//         pos.x <= lineX + lineMetrics.actualBoundingBoxRight &&
-//         pos.y >= lineY - lineMetrics.actualBoundingBoxDescent &&
-//         pos.y <= lineY + lineMetrics.actualBoundingBoxAscent
-//         );
-//     });
-//     // console.log(lineIdx);
-//   return lineIdx
-// }
-
-
-
-
-// function onMouseMove(ev) {
-// 	const { offsetX, offsetY, clientX, clientY } = ev
-
-//     // :TODO - find the hovered star
-
-//     const line = gMeme.lines.findIndex(line => {
-//         let { x, y} = line
-
-//         return (offsetX >= x && offsetX <= x + BAR_WIDTH &&
-//                 offsetY >= y && offsetY <= y +line. )
-//     })
-//         // :TODO - display the modal if a star has been found
-    
-//         if(star){
-//           openModal(star.name, star.rate, clientX, clientY)
-//       } else {
-//           closeModal()
-//       }
-//   }
-
-// function onMouseMove(ev) {
-// 	// ?const { offsetX, offsetY, pageX, pagetY } = ev
-// 	const { offsetX, offsetY, clientX, clientY } = ev
-
-//     // :TODO - find the hovered star
-
-//     const star = gStars.find(star => {
-//         let { x, y, rate } = star
-
-//         return (offsetX >= x && offsetX <= x + BAR_WIDTH &&
-//                 offsetY >= y && offsetY <= y + rate)
-    // :TODO - display the modal if a star has been found
-    
-//     if(star){
-//       openModal(star.name, star.rate, clientX, clientY)
-//   } else {
-//       closeModal()
-//   }//     })
-// }

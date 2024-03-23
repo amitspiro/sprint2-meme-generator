@@ -1,0 +1,30 @@
+.random-container {
+    background-color: transparent;
+    justify-content: center;
+    display: none;
+    padding: 20px;
+    background-color: #20222F;
+    box-shadow: -1px 1px 9px 11px rgb(19, 20, 22);
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+
+.random-meme {
+    background-color: #20222F;
+    box-shadow: -1px 1px 9px 11px rgb(19, 20, 22);
+    display: block;
+    width: 500px;
+    height: 500px;
+}
+
+.random-download {
+    height: 500px;
+}
+
+.main-random-container {
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.818);
+    border-width: 2px;
+    background: linear-gradient(to bottom right, #e0e0e0, #d2b48c, #808080, #d2b48c);
+}

@@ -1,20 +1,18 @@
-// 'use strict'
+"use strict";
 
-// function openRandom() {
-//   gElGallery.style.display = 'none';
-//   gElEditor.style.display = 'none';
-//   gElAbout.style.display = 'none'
+function openRandom() {
+  let location = getRandomIntInclusive(1, gRandomImgs.length);
+  console.log(location);
+  gElSaved.style.display='none'
+  gElGallery.style.display = "none";
+  gElEditor.style.display = "none";
+  gElRandomMeme.style.display = "flex";
 
-//   gElRandomMeme.style.display = 'block'
-//   console.log(gElRandomMeme);
-//   getRandomMeme()
-// }
+  gElRandomMemePic.style.backgroundImage = `url('imgs/random-meme/${location}.jpg')`;
+  gElRandomMemePic.style.backgroundImage = `url('imgs/random-meme/${location}.jpg')`;
+}
 
-
-
-// function onImgSelect(imgId) {
-//   setImg(imgId);
-//   gElGallery.style.display = "none";
-//   gElEditor.style.display = "grid";
-//   renderMeme();
-// }
+function downloadRandomImg(elLink) {
+  const imgContent = gElRandomMemePic.toDataURL("image/jpeg"); // image/jpeg the default format
+  elLink.href = imgContent;
+}

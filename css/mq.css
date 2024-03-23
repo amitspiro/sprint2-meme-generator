@@ -1,4 +1,7 @@
 @media (max-width:770px) {
+
+    
+    
     .toggle-menu-btn {
         display: block;
     }
@@ -19,27 +22,18 @@
 
     ul {
         border-top-style: none;
-
     }
 
     nav {
         display: none;
-        /* opacity: 0.6; */
-
     }
-    /* .cool-hover:hover{ */
-        /* opacity: 1; */
-    /* } */
 
     .menu-open {
         box-shadow: -6px 0px 20px rgb(0 0 0 / 25%);
         transform: translateX(0);
-        /* opacity: 1; */
         pointer-events: auto;
         background-color: #a54747;
         display: block;
-        /* transition: 2s; */
-
     }
 
     .toggle-menu-btn {
@@ -48,11 +42,9 @@
 
     .meme-editor {
         display: none;
-        /* display: grid; */
         grid-template-columns: 1fr;
         grid-template-rows: 1fr 1fr;
-        background-image: url('/background/1.jpg');
-        /* background-color: #df229d; */
+        background-image: url('/imgs/background/1.jpg');
     }
 
     .canvas-container {
@@ -73,6 +65,12 @@
         border-color: #d2b48c;
         box-shadow: -1px 1px 9px 11px rgb(19, 20, 22);
     }
+
+    .logo {
+        background-image: url('/imgs/logo/4.png');
+        width: 200px;
+        height: 40px;
+    }
 }
 
 @media(min-width:771px) {
@@ -86,7 +84,7 @@
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 1fr;
         background-color: #46b86c;
-        background-image: url('/background/1.jpg');
+        background-image: url('/imgs/background/1.jpg');
     }
 
     .canvas-container {
@@ -102,9 +100,6 @@
         margin: auto;
         padding: 1em;
         grid-row: 1;
-        /* display: flex; */
-        /* flex-wrap: wrap; */
-        /* align-items: center; */
         margin-top: 50%;
         transform: translateY(-50%);
         background: linear-gradient(to bottom right, #e0e0e0, #d2b48c, #808080, #d2b48c);
@@ -115,6 +110,21 @@
         border-radius: 7px;
         border-color: #d2b48c;
         box-shadow: -1px 1px 9px 11px rgb(19, 20, 22);
+    }
 
+    header {
+        padding-left: 5px;
+    }
+
+    .logo {
+        background-image: url('/imgs/logo/5.jpg');
+        width: 250px;
+        height: 80px;
+    }
+}
+
+@media screen and (max-height: 770px) {
+    footer {
+        position: static; /* Or position: relative; depending on your layout */
     }
 }

@@ -1,25 +1,11 @@
-// 'use strict'
-// let gElRandomMeme = document.querySelector(".random-pic");
-// let gRandomImgs = [
-//     { id: 1, url: "1.jpg"},
-//     { id: 2, url: "2.jpg"},
+"use strict";
+let gElRandomMeme = document.querySelector(".random-container");
+let gElRandomMemePic = document.querySelector(".random-meme");
 
-// ]
- 
-
-// function getRandomMeme(){
-//     let randomMeme = gRandomImgs[getRandomInt(0, gRandomImgs.length)];
-//     gElRandomMeme.style.backgroundImage = `url('/random-meme/1.jpg')`;
-// }
-
-
-
-// function getRandomMeme(){
-//     let randomMeme= gRandomImgs[getRandomInt(0, gRandomImgs.length)]
-// gElRandomMeme.style.background-image: `url('/background/${randomMeme.url}');`
-
-// }
-
-// function setImg(imgId) {
-//     gMeme.selectedImgId = imgId;
-//   }
+let gRandomImgs = [
+  { id: 1, url: "1.jpg" },
+  { id: 2, url: "2.jpg" },
+  { id: 3, url: "3.jpg" },
+  { id: 4, url: "4.jpg" },
+  { id: 5, url: "5.jpg" },
+];
