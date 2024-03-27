@@ -97,13 +97,13 @@ function removeCurrentLine() {
   console.log(gMeme.lines);
 }
 
-function isCircleClicked(clickedPos) {
-  const { pos } = gCircle;
-  const distance = Math.sqrt(
-    (pos.x - clickedPos.x) ** 2 + (pos.y - clickedPos.y) ** 2
-  );
-  return distance <= gCircle.size;
-}
+// function isCircleClicked(clickedPos) {
+//   const { pos } = gCircle;
+//   const distance = Math.sqrt(
+//     (pos.x - clickedPos.x) ** 2 + (pos.y - clickedPos.y) ** 2
+//   );
+//   return distance <= gCircle.size;
+// }
 
 function getLineClickedIdx(pos) {
   const lineIdx = gMeme.lines.findIndex((line) => {

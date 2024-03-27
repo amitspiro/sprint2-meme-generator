@@ -13,6 +13,11 @@ function openRandom() {
 }
 
 function downloadRandomImg(elLink) {
-  const imgContent = gElRandomMemePic.toDataURL("image/jpeg"); // image/jpeg the default format
+  let imgContent= new Image()
+  imgContent.crossOrigin='anonymous'
+  let imgUrl = gElRandomMemePic.toDataURL("image/jpeg"); // image/jpeg the default format
+imgContent.src= imgUrl
+  // crossOrigin="anonymous"
+
   elLink.href = imgContent;
 }
